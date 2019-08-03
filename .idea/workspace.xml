@@ -8,7 +8,7 @@
   <component name="ChangeListManager">
     <list default="true" id="073be30d-a592-4f1f-89f9-acab801db1da" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/statemachine_jar/statemachine.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/statemachine_jar/statemachine.jar" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/statemachine_jar/statemachine.jar" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/itu/celikelni/spring/boot/statemachine/config/StateMachineConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/itu/celikelni/spring/boot/statemachine/config/StateMachineConfig.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/itu/celikelni/spring/boot/statemachine/config/StateMachineConfig$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/itu/celikelni/spring/boot/statemachine/config/StateMachineConfig$1.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/itu/celikelni/spring/boot/statemachine/config/StateMachineConfig.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/itu/celikelni/spring/boot/statemachine/config/StateMachineConfig.class" afterDir="false" />
@@ -29,21 +29,38 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/itu/celikelni/spring/boot/statemachine/config/StateMachineConfig.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="191">
-              <caret line="33" column="16" selection-start-line="33" selection-start-column="16" selection-end-line="33" selection-end-column="16" />
+            <state relative-caret-position="157">
+              <caret line="159" column="51" selection-start-line="159" selection-start-column="51" selection-end-line="159" selection-end-column="51" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="method#configure#1;class#StateMachineConfig#0" />
-                <element signature="method#configure#2;class#StateMachineConfig#0" />
                 <element signature="method#createLogFile#0;class#StateMachineConfig#0" />
-                <element signature="e#2476#4187#0" expanded="true" />
-                <element signature="e#4186#4187#0" expanded="true" />
+                <element signature="method#storeEvents#0;class#StateMachineConfig#0" />
+                <element signature="method#getTimeStamp#0;class#StateMachineConfig#0" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/itu/celikelni/spring/boot/statemachine/Application.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="204">
+              <caret line="21" column="54" selection-start-line="21" selection-start-column="54" selection-end-line="21" selection-end-column="54" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#599#600#0" expanded="true" />
+                <element signature="e#661#662#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
     </leaf>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>client-state-machine</find>
+    </findStrings>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -95,8 +112,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -125,12 +140,58 @@
             <path>
               <item name="statemachine" type="b2602c69:ProjectViewProjectNode" />
               <item name="FirstStateMachineApp" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="statemachine" type="b2602c69:ProjectViewProjectNode" />
+              <item name="FirstStateMachineApp" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="statemachine" type="b2602c69:ProjectViewProjectNode" />
+              <item name="FirstStateMachineApp" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="statemachine" type="b2602c69:ProjectViewProjectNode" />
+              <item name="FirstStateMachineApp" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="statemachine" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="statemachine" type="b2602c69:ProjectViewProjectNode" />
+              <item name="FirstStateMachineApp" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="statemachine" type="462c0819:PsiDirectoryNode" />
+              <item name="config" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="statemachine" type="b2602c69:ProjectViewProjectNode" />
+              <item name="FirstStateMachineApp" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="statemachine" type="462c0819:PsiDirectoryNode" />
+              <item name="constant" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="statemachine" type="b2602c69:ProjectViewProjectNode" />
+              <item name="FirstStateMachineApp" type="462c0819:PsiDirectoryNode" />
               <item name="target" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -209,7 +270,7 @@
     <frame x="70" y="-8" width="1304" height="784" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.3022508" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.30305466" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -218,7 +279,7 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.23502304" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.57757294" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -227,35 +288,21 @@
       <window_info anchor="bottom" id="Event Log" order="8" side_tool="true" />
       <window_info anchor="bottom" id="Version Control" order="9" weight="0.32872504" />
       <window_info anchor="bottom" id="Messages" order="10" weight="0.32872504" />
-      <window_info anchor="right" id="Coverage" sideWeight="0.50076807" side_tool="true" weight="0.1881029" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="right" id="Palette" order="3" />
-      <window_info anchor="right" id="Maven" order="4" sideWeight="0.49923196" visible="true" weight="0.06511254" />
+      <window_info anchor="right" id="Maven" order="4" sideWeight="0.49923196" visible="true" weight="0.051446944" />
       <window_info anchor="right" id="Theme Preview" order="5" />
       <window_info anchor="right" id="Capture Analysis" order="6" />
       <window_info anchor="right" id="Palette&#9;" order="7" />
+      <window_info anchor="right" id="Coverage" order="8" sideWeight="0.50076807" side_tool="true" weight="0.1881029" />
     </layout>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/statemachine$statemachine_jar.ic" NAME="statemachine.jar Coverage Results" MODIFIED="1564510096690" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/itu/celikelni/spring/boot/statemachine/constant/Events.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret selection-end-column="60" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/itu/celikelni/spring/boot/statemachine/constant/States.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="60" selection-start-column="60" selection-end-column="60" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/logs/transitions.txt" />
     <entry file="file://$PROJECT_DIR$/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
@@ -264,47 +311,52 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/out/artifacts/statemachine_jar/log.txt">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/out/artifacts/statemachine_jar/log_2019_7_30.txt">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/out/artifacts/statemachine_jar/log_2019_7_30_21_26_2.txt">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/out/artifacts/statemachine_jar/log_2019_7_30_21_41_21.txt">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/itu/celikelni/spring/boot/statemachine/Application.java">
+    <entry file="file://$PROJECT_DIR$/out/artifacts/statemachine_jar/log.txt" />
+    <entry file="file://$PROJECT_DIR$/out/artifacts/statemachine_jar/log_2019_7_30.txt" />
+    <entry file="file://$PROJECT_DIR$/out/artifacts/statemachine_jar/log_2019_7_30_21_26_2.txt" />
+    <entry file="file://$PROJECT_DIR$/out/artifacts/statemachine_jar/log_2019_7_30_21_41_21.txt" />
+    <entry file="file://$PROJECT_DIR$/out/artifacts/statemachine_jar/log_2019_7_30_21_47_28.txt" />
+    <entry file="file://$PROJECT_DIR$/out/artifacts/statemachine_jar/log_2019_7_30_21_54_46.txt" />
+    <entry file="file://$PROJECT_DIR$/out/artifacts/statemachine_jar/log_2019_8_1_20_14_41.txt" />
+    <entry file="file://$PROJECT_DIR$/out/artifacts/statemachine_jar/log_2019_8_1_20_17_14.txt" />
+    <entry file="file://$PROJECT_DIR$/out/artifacts/statemachine_jar/log_2019.8.1_20.21.13.813.txt" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/itu/celikelni/spring/boot/statemachine/constant/Events.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="21" column="41" selection-start-line="21" selection-start-column="41" selection-end-line="21" selection-end-column="41" />
+        <state relative-caret-position="34">
+          <caret line="2" column="7" selection-start-line="2" selection-start-column="4" selection-end-line="2" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/out/artifacts/statemachine_jar/log_2019.8.1_21.15.40.559.txt" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/itu/celikelni/spring/boot/statemachine/constant/States.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="1" column="19" selection-start-line="1" selection-start-column="13" selection-end-line="1" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/out/artifacts/statemachine_jar/log_2019.8.1_21.33.17.241.txt" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/itu/celikelni/spring/boot/statemachine/config/StateMachineConfig.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="157">
+          <caret line="159" column="51" selection-start-line="159" selection-start-column="51" selection-end-line="159" selection-end-column="51" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#599#600#0" expanded="true" />
-            <element signature="e#661#662#0" expanded="true" />
+            <element signature="method#createLogFile#0;class#StateMachineConfig#0" />
+            <element signature="method#storeEvents#0;class#StateMachineConfig#0" />
+            <element signature="method#getTimeStamp#0;class#StateMachineConfig#0" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/out/artifacts/statemachine_jar/log_2019_7_30_21_47_28.txt">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/out/artifacts/statemachine_jar/log_2019_7_30_21_54_46.txt">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/itu/celikelni/spring/boot/statemachine/config/StateMachineConfig.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/itu/celikelni/spring/boot/statemachine/Application.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="191">
-          <caret line="33" column="16" selection-start-line="33" selection-start-column="16" selection-end-line="33" selection-end-column="16" />
+        <state relative-caret-position="204">
+          <caret line="21" column="54" selection-start-line="21" selection-start-column="54" selection-end-line="21" selection-end-column="54" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="method#configure#1;class#StateMachineConfig#0" />
-            <element signature="method#configure#2;class#StateMachineConfig#0" />
-            <element signature="method#createLogFile#0;class#StateMachineConfig#0" />
-            <element signature="e#2476#4187#0" expanded="true" />
-            <element signature="e#4186#4187#0" expanded="true" />
+            <element signature="e#599#600#0" expanded="true" />
+            <element signature="e#661#662#0" expanded="true" />
           </folding>
         </state>
       </provider>

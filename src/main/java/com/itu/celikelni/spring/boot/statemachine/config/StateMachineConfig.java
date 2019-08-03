@@ -15,12 +15,16 @@ import org.springframework.statemachine.config.builders.StateMachineTransitionCo
 import org.springframework.statemachine.listener.StateMachineListener;
 import org.springframework.statemachine.listener.StateMachineListenerAdapter;
 import org.springframework.statemachine.transition.Transition;
+import org.springframework.statemachine.action.Action;
+import org.springframework.statemachine.StateContext;
 
 import java.util.EnumSet;
+import java.util.Map;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.PrintWriter;
 import java.util.Calendar;
+
 
 @Configuration
 @EnableStateMachine
@@ -61,11 +65,15 @@ public class StateMachineConfig extends EnumStateMachineConfigurerAdapter<States
                 .withExternal()
                 .source(States.UNPAID).target(States.WAITING_FOR_RECEIVE)
                 .event(Events.PAY)
+                //.action((c) ->{System.out.println("-----FROM UNPAID TO WAITING----");})
+                .action(actionFromWaitingToReceive())
                 .and()
                 .withExternal()
                 .source(States.WAITING_FOR_RECEIVE).target(States.DONE)
-                .event(Events.RECEIVE);
+                .event(Events.RECEIVE)
+                .action(actionFromWaitingToReceive());
     }
+
 
     /**
      * @param config
@@ -75,6 +83,7 @@ public class StateMachineConfig extends EnumStateMachineConfigurerAdapter<States
     public void configure(StateMachineConfigurationConfigurer<States, Events> config)
             throws Exception {
         config.withConfiguration()
+                .machineId("client-state-machine")
                 .listener(listener());
     }
 
@@ -85,14 +94,7 @@ public class StateMachineConfig extends EnumStateMachineConfigurerAdapter<States
         System.out.println("PATH ---> " + path);
 
 
-        Calendar now = Calendar.getInstance();
-        int year = now.get(Calendar.YEAR);
-        int month = now.get(Calendar.MONTH) + 1; // Note: zero based!
-        int day = now.get(Calendar.DAY_OF_MONTH);
-        int hour = now.get(Calendar.HOUR_OF_DAY);
-        int minute = now.get(Calendar.MINUTE);
-        int second = now.get(Calendar.SECOND);
-        String fd = path + "/log_" + year + "_" + month + "_"  + day + "_" + hour + "_" + minute + "_" + second+".txt" ;
+        String fd = path + "/log_" + getTimeStamp() + ".txt" ;
         try
         {
             logfile = new File(fd);
@@ -125,6 +127,46 @@ public class StateMachineConfig extends EnumStateMachineConfigurerAdapter<States
 
     }
 
+
+    public String getTimeStamp(){
+        Calendar now = Calendar.getInstance();
+        int year = now.get(Calendar.YEAR);
+        int month = now.get(Calendar.MONTH) + 1; // Note: zero based!
+        int day = now.get(Calendar.DAY_OF_MONTH);
+        int hour = now.get(Calendar.HOUR_OF_DAY);
+        int minute = now.get(Calendar.MINUTE);
+        int second = now.get(Calendar.SECOND);
+        int ms = now.get(Calendar.MILLISECOND);
+
+        String ts = year + "." + month + "." +  day + "_" + hour + "." + minute + "." + second + "." + ms;
+        return ts;
+    }
+
+
+    @Bean
+    public Action<States, Events> actionFromWaitingToReceive() {
+        return new Action<States, Events>() {
+            @Override
+            public void execute(StateContext<States, Events> context) {
+                System.out.println("-----------ACTION FROM WAITING TO RECEIVE------------");
+                //context.getExtendedState().getVariables().put("KEY", "VALUE");
+
+                Map<Object, Object> variables = context.getExtendedState().getVariables();
+                Integer foo = context.getExtendedState().get("foo", Integer.class);
+                if (foo == null) {
+                    logger.info("Init foo to 0");
+                    variables.put("foo", 0);
+                } else if (foo == 0) {
+                    logger.info("Switch foo to 1");
+                    variables.put("foo", 1);
+                } else if (foo == 1) {
+                    logger.info("Switch foo to 0");
+                    variables.put("foo", 0);
+                }
+            }
+        };
+    }
+
     @Bean
     public StateMachineListener<States, Events> listener() {
 
@@ -136,23 +178,24 @@ public class StateMachineConfig extends EnumStateMachineConfigurerAdapter<States
 
                 /** Write transitions into log file using storeEvents method**/
 
+
                 if (transition.getTarget().getId() == States.UNPAID) {
                     logger.info("====TRANSITION1=====");
-                    storeEvents("UNPAID");
+                    storeEvents(getTimeStamp() + " >>>>> " + "UNPAID" );
                     return;
                 }
 
                 if (transition.getSource().getId() == States.UNPAID
                         && transition.getTarget().getId() == States.WAITING_FOR_RECEIVE) {
                     logger.info("====TRANSITION2=====");
-                    storeEvents("UNPAID --> WAITING");
+                    storeEvents(getTimeStamp() + " >>>>> " +"UNPAID --> WAITING");
                     return;
                 }
 
                 if (transition.getSource().getId() == States.WAITING_FOR_RECEIVE
                         && transition.getTarget().getId() == States.DONE) {
                     logger.info("====TRANSITION3=====");
-                    storeEvents("WAITING --> DONE");
+                    storeEvents(getTimeStamp() + " >>>>> " + "WAITING --> DONE");
                     return;
                 }
             }
