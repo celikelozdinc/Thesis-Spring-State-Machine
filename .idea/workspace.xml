@@ -8,10 +8,17 @@
   <component name="ChangeListManager">
     <list default="true" id="073be30d-a592-4f1f-89f9-acab801db1da" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/statemachine_jar/statemachine.jar" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/statemachine_jar/statemachine.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/statemachine_jar/log_2019.8.1_22.19.51.409.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/statemachine_jar/log_2019.8.1_22.7.7.212.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/statemachine_jar/statemachine.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/itu/celikelni/spring/boot/statemachine/Application.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/itu/celikelni/spring/boot/statemachine/Application.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/itu/celikelni/spring/boot/statemachine/config/StateMachineConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/itu/celikelni/spring/boot/statemachine/config/StateMachineConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/itu/celikelni/spring/boot/statemachine/constant/Events.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/itu/celikelni/spring/boot/statemachine/constant/Events.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/itu/celikelni/spring/boot/statemachine/Application.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/itu/celikelni/spring/boot/statemachine/Application.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/itu/celikelni/spring/boot/statemachine/config/StateMachineConfig$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/itu/celikelni/spring/boot/statemachine/config/StateMachineConfig$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/itu/celikelni/spring/boot/statemachine/config/StateMachineConfig$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/itu/celikelni/spring/boot/statemachine/config/StateMachineConfig$2.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/itu/celikelni/spring/boot/statemachine/config/StateMachineConfig.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/itu/celikelni/spring/boot/statemachine/config/StateMachineConfig.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/itu/celikelni/spring/boot/statemachine/constant/Events.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/itu/celikelni/spring/boot/statemachine/constant/Events.class" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -26,30 +33,43 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/itu/celikelni/spring/boot/statemachine/config/StateMachineConfig.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="157">
-              <caret line="159" column="51" selection-start-line="159" selection-start-column="51" selection-end-line="159" selection-end-column="51" />
+            <state relative-caret-position="-98">
+              <caret line="157" selection-start-line="157" selection-end-line="157" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="method#createLogFile#0;class#StateMachineConfig#0" />
                 <element signature="method#storeEvents#0;class#StateMachineConfig#0" />
                 <element signature="method#getTimeStamp#0;class#StateMachineConfig#0" />
+                <element signature="method#sleepForAWhile#0;class#StateMachineConfig#0" />
+                <element signature="method#initializationAction#0;class#StateMachineConfig#0" />
+                <element signature="method#listener#0;class#StateMachineConfig#0" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/itu/celikelni/spring/boot/statemachine/constant/Events.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="17">
+              <caret line="1" column="12" selection-start-line="1" selection-start-column="12" selection-end-line="1" selection-end-column="12" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/itu/celikelni/spring/boot/statemachine/Application.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="204">
-              <caret line="21" column="54" selection-start-line="21" selection-start-column="54" selection-end-line="21" selection-end-column="54" />
+            <state relative-caret-position="309">
+              <caret line="68" column="30" selection-start-line="68" selection-start-column="30" selection-end-line="68" selection-end-column="30" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#599#600#0" expanded="true" />
                 <element signature="e#661#662#0" expanded="true" />
+                <element signature="method#processOneCycle#0;class#Application#0" />
               </folding>
             </state>
           </provider>
@@ -60,6 +80,9 @@
   <component name="FindInProjectRecents">
     <findStrings>
       <find>client-state-machine</find>
+      <find>INITIALIZ</find>
+      <find>VAR</find>
+      <find>CTION FOR INI</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -68,10 +91,10 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/java/com/itu/celikelni/spring/boot/statemachine/constant/Events.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/itu/celikelni/spring/boot/statemachine/constant/States.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/itu/celikelni/spring/boot/statemachine/Application.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/itu/celikelni/spring/boot/statemachine/constant/Events.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/itu/celikelni/spring/boot/statemachine/config/StateMachineConfig.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/itu/celikelni/spring/boot/statemachine/Application.java" />
       </list>
     </option>
   </component>
@@ -235,8 +258,14 @@
     </configuration>
     <configuration name="statemachine.jar" type="JarApplication" temporary="true">
       <option name="JAR_PATH" value="$PROJECT_DIR$/out/artifacts/statemachine_jar/statemachine.jar" />
+      <option name="PROGRAM_PARAMETERS" value="timesleep=1000" />
+      <option name="ALTERNATIVE_JRE_PATH" />
       <method v="2" />
     </configuration>
+    <list>
+      <item itemvalue="Application.Application" />
+      <item itemvalue="JAR Application.statemachine.jar" />
+    </list>
     <recent_temporary>
       <list>
         <item itemvalue="JAR Application.statemachine.jar" />
@@ -270,7 +299,7 @@
     <frame x="70" y="-8" width="1304" height="784" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.30305466" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.28456593" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -279,7 +308,7 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.57757294" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.39477727" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -292,7 +321,7 @@
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="right" id="Palette" order="3" />
-      <window_info anchor="right" id="Maven" order="4" sideWeight="0.49923196" visible="true" weight="0.051446944" />
+      <window_info anchor="right" id="Maven" order="4" sideWeight="0.49923196" visible="true" weight="0.024115756" />
       <window_info anchor="right" id="Theme Preview" order="5" />
       <window_info anchor="right" id="Capture Analysis" order="6" />
       <window_info anchor="right" id="Palette&#9;" order="7" />
@@ -320,13 +349,6 @@
     <entry file="file://$PROJECT_DIR$/out/artifacts/statemachine_jar/log_2019_8_1_20_14_41.txt" />
     <entry file="file://$PROJECT_DIR$/out/artifacts/statemachine_jar/log_2019_8_1_20_17_14.txt" />
     <entry file="file://$PROJECT_DIR$/out/artifacts/statemachine_jar/log_2019.8.1_20.21.13.813.txt" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/itu/celikelni/spring/boot/statemachine/constant/Events.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="7" selection-start-line="2" selection-start-column="4" selection-end-line="2" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/out/artifacts/statemachine_jar/log_2019.8.1_21.15.40.559.txt" />
     <entry file="file://$PROJECT_DIR$/src/main/java/com/itu/celikelni/spring/boot/statemachine/constant/States.java">
       <provider selected="true" editor-type-id="text-editor">
@@ -336,27 +358,118 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/out/artifacts/statemachine_jar/log_2019.8.1_21.33.17.241.txt" />
+    <entry file="file://$PROJECT_DIR$/out/artifacts/statemachine_jar/log_2019.8.3_11.16.6.515.txt">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/out/artifacts/statemachine_jar/log_2019.8.3_11.24.48.716.txt">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/out/artifacts/statemachine_jar/log_2019.8.3_11.26.17.144.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="9" lean-forward="true" selection-start-line="9" selection-end-line="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/out/artifacts/statemachine_jar/log_2019.8.3_11.55.51.932.txt">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/out/artifacts/statemachine_jar/log_2019.8.3_12.2.33.845.txt">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/out/artifacts/statemachine_jar/log_2019.8.3_12.7.4.554.txt">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/out/artifacts/statemachine_jar/log_2019.8.3_12.12.7.851.txt">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/out/artifacts/statemachine_jar/log_2019.8.3_12.16.15.84.txt">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/out/artifacts/statemachine_jar/log_2019.8.3_12.19.45.476.txt">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/out/artifacts/statemachine_jar/log_2019.8.3_12.25.21.569.txt">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/out/artifacts/statemachine_jar/log_2019.8.3_12.29.16.133.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="12" column="34" selection-start-line="12" selection-start-column="28" selection-end-line="12" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/out/artifacts/statemachine_jar/log_2019.8.3_12.58.36.818.txt">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/out/artifacts/statemachine_jar/log_2019.8.3_14.26.23.256.txt">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/out/artifacts/statemachine_jar/log_2019.8.3_14.33.20.28.txt">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/out/artifacts/statemachine_jar/log_2019.8.3_14.57.32.861.txt">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/out/artifacts/statemachine_jar/log_2019.8.3_14.59.9.780.txt">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/out/artifacts/statemachine_jar/log_2019.8.3_15.2.5.902.txt">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/out/artifacts/statemachine_jar/log_2019.8.3_15.4.14.431.txt">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/out/artifacts/statemachine_jar/log_2019.8.3_15.6.16.945.txt">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/out/artifacts/statemachine_jar/log_2019.8.3_15.7.26.32.txt">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/out/artifacts/statemachine_jar/log_2019.8.3_15.17.51.954.txt">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/out/artifacts/statemachine_jar/log_2019.8.3_15.19.41.371.txt">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/out/artifacts/statemachine_jar/log_2019.8.3_15.22.1.949.txt">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/itu/celikelni/spring/boot/statemachine/config/StateMachineConfig.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="157">
-          <caret line="159" column="51" selection-start-line="159" selection-start-column="51" selection-end-line="159" selection-end-column="51" />
+        <state relative-caret-position="-98">
+          <caret line="157" selection-start-line="157" selection-end-line="157" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="method#createLogFile#0;class#StateMachineConfig#0" />
             <element signature="method#storeEvents#0;class#StateMachineConfig#0" />
             <element signature="method#getTimeStamp#0;class#StateMachineConfig#0" />
+            <element signature="method#sleepForAWhile#0;class#StateMachineConfig#0" />
+            <element signature="method#initializationAction#0;class#StateMachineConfig#0" />
+            <element signature="method#listener#0;class#StateMachineConfig#0" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/itu/celikelni/spring/boot/statemachine/constant/Events.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="1" column="12" selection-start-line="1" selection-start-column="12" selection-end-line="1" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/out/artifacts/statemachine_jar/log_2019.8.3_15.31.14.964.txt">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/itu/celikelni/spring/boot/statemachine/Application.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="21" column="54" selection-start-line="21" selection-start-column="54" selection-end-line="21" selection-end-column="54" />
+        <state relative-caret-position="309">
+          <caret line="68" column="30" selection-start-line="68" selection-start-column="30" selection-end-line="68" selection-end-column="30" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#599#600#0" expanded="true" />
             <element signature="e#661#662#0" expanded="true" />
+            <element signature="method#processOneCycle#0;class#Application#0" />
           </folding>
         </state>
       </provider>

@@ -24,6 +24,7 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.PrintWriter;
 import java.util.Calendar;
+import java.util.concurrent.TimeUnit;
 
 
 @Configuration
@@ -36,10 +37,7 @@ public class StateMachineConfig extends EnumStateMachineConfigurerAdapter<States
 
 
     /** Default Constructor **/
-    public StateMachineConfig(){
-
-        createLogFile();
-    }
+    public StateMachineConfig(){ createLogFile(); }
 
 
     /**
@@ -50,7 +48,7 @@ public class StateMachineConfig extends EnumStateMachineConfigurerAdapter<States
     public void configure(StateMachineStateConfigurer<States, Events> states)
             throws Exception {
         states.withStates()
-                .initial(States.UNPAID)
+                .initial(States.UNPAID, initializationAction())
                 .states(EnumSet.allOf(States.class));
     }
 
@@ -66,12 +64,18 @@ public class StateMachineConfig extends EnumStateMachineConfigurerAdapter<States
                 .source(States.UNPAID).target(States.WAITING_FOR_RECEIVE)
                 .event(Events.PAY)
                 //.action((c) ->{System.out.println("-----FROM UNPAID TO WAITING----");})
-                .action(actionFromWaitingToReceive())
+                //.action(c -> {c.getExtendedState().getVariables().put("key1", "value1");});
+                .action(increaseAction())
                 .and()
                 .withExternal()
                 .source(States.WAITING_FOR_RECEIVE).target(States.DONE)
                 .event(Events.RECEIVE)
-                .action(actionFromWaitingToReceive());
+                .action(increaseAction())
+                .and()
+                .withExternal()
+                .source(States.DONE).target(States.UNPAID)
+                .event(Events.STARTFROMSCRATCH)
+                .action(increaseAction());
     }
 
 
@@ -143,25 +147,57 @@ public class StateMachineConfig extends EnumStateMachineConfigurerAdapter<States
     }
 
 
+    public void sleepForAWhile(Long sleepTime){
+        try {
+            TimeUnit.MILLISECONDS.sleep(sleepTime);
+        } catch (InterruptedException ex) {
+            // handle error
+        }
+
+    }
+
     @Bean
-    public Action<States, Events> actionFromWaitingToReceive() {
+    public Action<States, Events> initializationAction() {
         return new Action<States, Events>() {
             @Override
             public void execute(StateContext<States, Events> context) {
-                System.out.println("-----------ACTION FROM WAITING TO RECEIVE------------");
-                //context.getExtendedState().getVariables().put("KEY", "VALUE");
+                System.out.println("-----------ACTION FOR INITIALIZATION------------");
+                context.getExtendedState().getVariables().put("foo", 0);
+            }
+        };
+    }
+
+    @Bean
+    public Action<States, Events> increaseAction() {
+        return new Action<States, Events>() {
+            @Override
+            public void execute(StateContext<States, Events> context) {
+                System.out.println("-----------ACTION FOR INCREASING FOO VARIABLE------------");
+
+                Object sleep = context.getMessageHeaders().get("timeSleep");
+                long longSleep = ((Number) sleep).longValue();
 
                 Map<Object, Object> variables = context.getExtendedState().getVariables();
                 Integer foo = context.getExtendedState().get("foo", Integer.class);
+
+                /* For Initalization Action
                 if (foo == null) {
                     logger.info("Init foo to 0");
                     variables.put("foo", 0);
-                } else if (foo == 0) {
-                    logger.info("Switch foo to 1");
+                }*/
+
+                if (foo == 0) {
+                    logger.info("Switch foo from 0 to 1");
                     variables.put("foo", 1);
+                    sleepForAWhile(longSleep);
                 } else if (foo == 1) {
-                    logger.info("Switch foo to 0");
+                    logger.info("Switch foo from 1 to 2");
+                    variables.put("foo", 2);
+                    sleepForAWhile(longSleep);
+                } else if (foo == 2) {
+                    logger.info("Switch foo from 2 to 0");
                     variables.put("foo", 0);
+                    sleepForAWhile(longSleep);
                 }
             }
         };
@@ -178,26 +214,33 @@ public class StateMachineConfig extends EnumStateMachineConfigurerAdapter<States
 
                 /** Write transitions into log file using storeEvents method**/
 
-
                 if (transition.getTarget().getId() == States.UNPAID) {
-                    logger.info("====TRANSITION1=====");
+                    logger.info("====INITIALIZATION=====");
                     storeEvents(getTimeStamp() + " >>>>> " + "UNPAID" );
                     return;
                 }
 
                 if (transition.getSource().getId() == States.UNPAID
                         && transition.getTarget().getId() == States.WAITING_FOR_RECEIVE) {
-                    logger.info("====TRANSITION2=====");
+                    logger.info("====TRANSITION1=====");
                     storeEvents(getTimeStamp() + " >>>>> " +"UNPAID --> WAITING");
                     return;
                 }
 
                 if (transition.getSource().getId() == States.WAITING_FOR_RECEIVE
                         && transition.getTarget().getId() == States.DONE) {
-                    logger.info("====TRANSITION3=====");
+                    logger.info("====TRANSITION2=====");
                     storeEvents(getTimeStamp() + " >>>>> " + "WAITING --> DONE");
                     return;
                 }
+
+                if(transition.getSource().getId() == States.DONE
+                        && transition.getTarget().getId() == States.UNPAID){
+                    logger.info("====TRANSITION3=====");
+                    storeEvents(getTimeStamp() + " >>>>> " + "DONE --> UNPAID");
+                }
+
+
             }
 
         };
