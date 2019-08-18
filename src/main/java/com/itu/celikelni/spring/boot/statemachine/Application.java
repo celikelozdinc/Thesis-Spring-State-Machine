@@ -68,7 +68,7 @@ public class Application implements CommandLineRunner {
             processOneCycle(timeSleep);
             processCounter ++ ;
 
-        } while(processCounter < 5 );
+        } while(processCounter < 7 );
 
 
     }

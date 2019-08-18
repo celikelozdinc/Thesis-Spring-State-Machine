@@ -49,7 +49,9 @@ public class StateMachineConfig extends EnumStateMachineConfigurerAdapter<States
             throws Exception {
         states.withStates()
                 .initial(States.UNPAID, initializationAction())
-                .states(EnumSet.allOf(States.class));
+                .state(States.WAITING_FOR_RECEIVE, entryActionForWaiting(),exitActionForWaiting())
+                .state(States.DONE, entryActionForDone(),exitActionForDone());
+                //.states(EnumSet.allOf(States.class));
     }
 
     /**
@@ -59,23 +61,24 @@ public class StateMachineConfig extends EnumStateMachineConfigurerAdapter<States
     @Override
     public void configure(StateMachineTransitionConfigurer<States, Events> transitions)
             throws Exception {
+        /** Defines "EXTERNAL" type of transitions **/
         transitions
                 .withExternal()
-                .source(States.UNPAID).target(States.WAITING_FOR_RECEIVE)
-                .event(Events.PAY)
-                //.action((c) ->{System.out.println("-----FROM UNPAID TO WAITING----");})
-                //.action(c -> {c.getExtendedState().getVariables().put("key1", "value1");});
-                .action(increaseAction())
-                .and()
+                    .source(States.UNPAID).target(States.WAITING_FOR_RECEIVE)
+                    .event(Events.PAY)
+                    //.action((c) ->{System.out.println("-----FROM UNPAID TO WAITING----");})
+                    //.action(c -> {c.getExtendedState().getVariables().put("key1", "value1");});
+                    .action(increaseAction())
+                    .and()
                 .withExternal()
-                .source(States.WAITING_FOR_RECEIVE).target(States.DONE)
-                .event(Events.RECEIVE)
-                .action(increaseAction())
-                .and()
+                    .source(States.WAITING_FOR_RECEIVE).target(States.DONE)
+                    .event(Events.RECEIVE)
+                    .action(increaseAction())
+                    .and()
                 .withExternal()
-                .source(States.DONE).target(States.UNPAID)
-                .event(Events.STARTFROMSCRATCH)
-                .action(increaseAction());
+                    .source(States.DONE).target(States.UNPAID)
+                    .event(Events.STARTFROMSCRATCH)
+                    .action(increaseAction());
     }
 
 
@@ -157,12 +160,72 @@ public class StateMachineConfig extends EnumStateMachineConfigurerAdapter<States
     }
 
     @Bean
+    public Action<States, Events> entryActionForWaiting() {
+        return new Action<States, Events>() {
+
+            @Override
+            public void execute(StateContext<States, Events> context) {
+                System.out.println("-----------ENTERING WAITING STATE ACTION------------");
+                Map<Object, Object> variables = context.getExtendedState().getVariables();
+                Integer localVar = context.getExtendedState().get("localVarForWaiting", Integer.class);
+                localVar = localVar + 2;
+                variables.put("localVarForWaiting", localVar);
+            }
+        };
+    }
+
+    @Bean
+    public Action<States, Events> exitActionForWaiting() {
+        return new Action<States, Events>() {
+
+            @Override
+            public void execute(StateContext<States, Events> context) {
+                System.out.println("-----------EXITING WAITING STATE ACTION------------");
+                Integer localVar = context.getExtendedState().get("localVarForWaiting", Integer.class);
+                System.out.println("Local var for waiting state: " + localVar);
+            }
+        };
+    }
+
+    @Bean
+    public Action<States, Events> entryActionForDone() {
+        return new Action<States, Events>() {
+
+            @Override
+            public void execute(StateContext<States, Events> context) {
+                System.out.println("-----------ENTERING DONE STATE ACTION------------");
+                Map<Object, Object> variables = context.getExtendedState().getVariables();
+                Integer localVar = context.getExtendedState().get("localVarForDone", Integer.class);
+                localVar = localVar + 5;
+                variables.put("localVarForDone", localVar);
+            }
+        };
+    }
+
+    @Bean
+    public Action<States, Events> exitActionForDone() {
+        return new Action<States, Events>() {
+
+            @Override
+            public void execute(StateContext<States, Events> context) {
+                System.out.println("-----------EXITING DONE STATE ACTION------------");
+                Integer localVar = context.getExtendedState().get("localVarForDone", Integer.class);
+                System.out.println("Local var for done state: " + localVar);
+            }
+        };
+    }
+
+    @Bean
     public Action<States, Events> initializationAction() {
         return new Action<States, Events>() {
             @Override
             public void execute(StateContext<States, Events> context) {
-                System.out.println("-----------ACTION FOR INITIALIZATION------------");
-                context.getExtendedState().getVariables().put("foo", 0);
+                System.out.println("----------- TRANSITION ACTION FOR INITIALIZATION------------");
+                /** Define extended state variable as common variable used inside transition actions **/
+                context.getExtendedState().getVariables().put("common", 0);
+                /** Define extended state variable as private/local variable used inside state actions **/
+                context.getExtendedState().getVariables().put("localVarForWaiting",10);
+                context.getExtendedState().getVariables().put("localVarForDone",50);
             }
         };
     }
@@ -172,13 +235,13 @@ public class StateMachineConfig extends EnumStateMachineConfigurerAdapter<States
         return new Action<States, Events>() {
             @Override
             public void execute(StateContext<States, Events> context) {
-                System.out.println("-----------ACTION FOR INCREASING FOO VARIABLE------------");
+                System.out.println("-----------TRANSITION ACTION FOR INCREASING VARIABLE------------");
 
                 Object sleep = context.getMessageHeaders().get("timeSleep");
                 long longSleep = ((Number) sleep).longValue();
 
                 Map<Object, Object> variables = context.getExtendedState().getVariables();
-                Integer foo = context.getExtendedState().get("foo", Integer.class);
+                Integer commonVar = context.getExtendedState().get("common", Integer.class);
 
                 /* For Initalization Action
                 if (foo == null) {
@@ -186,17 +249,17 @@ public class StateMachineConfig extends EnumStateMachineConfigurerAdapter<States
                     variables.put("foo", 0);
                 }*/
 
-                if (foo == 0) {
-                    logger.info("Switch foo from 0 to 1");
-                    variables.put("foo", 1);
+                if (commonVar == 0) {
+                    logger.info("Switch common variable from 0 to 1");
+                    variables.put("commonVar", 1);
                     sleepForAWhile(longSleep);
-                } else if (foo == 1) {
-                    logger.info("Switch foo from 1 to 2");
-                    variables.put("foo", 2);
+                } else if (commonVar == 1) {
+                    logger.info("Switch common variable from 1 to 2");
+                    variables.put("commonVar", 2);
                     sleepForAWhile(longSleep);
-                } else if (foo == 2) {
-                    logger.info("Switch foo from 2 to 0");
-                    variables.put("foo", 0);
+                } else if (commonVar == 2) {
+                    logger.info("Switch common variable from 2 to 0");
+                    variables.put("commonVar", 0);
                     sleepForAWhile(longSleep);
                 }
             }
