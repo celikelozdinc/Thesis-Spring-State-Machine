@@ -18,7 +18,6 @@ import org.springframework.statemachine.transition.Transition;
 import org.springframework.statemachine.action.Action;
 import org.springframework.statemachine.StateContext;
 
-import java.util.EnumSet;
 import java.util.Map;
 import java.io.File;
 import java.io.FileWriter;
@@ -49,8 +48,11 @@ public class StateMachineConfig extends EnumStateMachineConfigurerAdapter<States
             throws Exception {
         states.withStates()
                 .initial(States.UNPAID, initializationAction())
-                .state(States.WAITING_FOR_RECEIVE, entryActionForWaiting(),exitActionForWaiting())
-                .state(States.DONE, entryActionForDone(),exitActionForDone());
+                .stateEntry(States.WAITING_FOR_RECEIVE,entryActionForWaiting(),errorDuringWaitingState())
+                .stateExit(States.WAITING_FOR_RECEIVE, exitActionForWaiting())
+                .stateEntry(States.DONE, entryActionForDone())
+                .stateExit(States.DONE, exitActionForDone());
+                //import java.util.EnumSet;
                 //.states(EnumSet.allOf(States.class));
     }
 
@@ -78,7 +80,7 @@ public class StateMachineConfig extends EnumStateMachineConfigurerAdapter<States
                 .withExternal()
                     .source(States.DONE).target(States.UNPAID)
                     .event(Events.STARTFROMSCRATCH)
-                    .action(increaseAction());
+                    .action(increaseAction(),errorDuringTransition());
     }
 
 
@@ -166,10 +168,11 @@ public class StateMachineConfig extends EnumStateMachineConfigurerAdapter<States
             @Override
             public void execute(StateContext<States, Events> context) {
                 System.out.println("-----------ENTERING WAITING STATE ACTION------------");
-                Map<Object, Object> variables = context.getExtendedState().getVariables();
                 Integer localVar = context.getExtendedState().get("localVarForWaiting", Integer.class);
                 localVar = localVar + 2;
-                variables.put("localVarForWaiting", localVar);
+                context.getExtendedState().getVariables().put("localVarForWaiting", localVar);
+                /** Must be catched by regarding State Action Error Handling Function **/
+                throw new RuntimeException("RUNTIME ERROR DURING WAITING STATE EXECUTION!!!");
             }
         };
     }
@@ -194,10 +197,9 @@ public class StateMachineConfig extends EnumStateMachineConfigurerAdapter<States
             @Override
             public void execute(StateContext<States, Events> context) {
                 System.out.println("-----------ENTERING DONE STATE ACTION------------");
-                Map<Object, Object> variables = context.getExtendedState().getVariables();
                 Integer localVar = context.getExtendedState().get("localVarForDone", Integer.class);
                 localVar = localVar + 5;
-                variables.put("localVarForDone", localVar);
+                context.getExtendedState().getVariables().put("localVarForDone", localVar);
             }
         };
     }
@@ -251,17 +253,33 @@ public class StateMachineConfig extends EnumStateMachineConfigurerAdapter<States
 
                 if (commonVar == 0) {
                     logger.info("Switch common variable from 0 to 1");
-                    variables.put("commonVar", 1);
+                    variables.put("common", 1);
                     sleepForAWhile(longSleep);
                 } else if (commonVar == 1) {
                     logger.info("Switch common variable from 1 to 2");
-                    variables.put("commonVar", 2);
+                    variables.put("common", 2);
                     sleepForAWhile(longSleep);
                 } else if (commonVar == 2) {
                     logger.info("Switch common variable from 2 to 0");
-                    variables.put("commonVar", 0);
+                    variables.put("common", 0);
                     sleepForAWhile(longSleep);
                 }
+                //throw new RuntimeException("RUNTIME ERROR DURING STATE TRANSITION");
+            }
+        };
+    }
+
+    @Bean
+    public Action<States, Events> errorDuringWaitingState() {
+        return ctx -> System.out.println("Error during " + ctx.getSource().getId() + ": " + ctx.getException());
+    }
+
+    @Bean
+    public Action<States, Events> errorDuringTransition() {
+        return new Action<States, Events>() {
+            @Override
+            public void execute(StateContext<States, Events> context) {
+                System.out.println("Exception message: " + context.getException().getMessage());
             }
         };
     }
