@@ -1,6 +1,6 @@
 package com.itu.celikelni.spring.boot.statemachine;
-import com.itu.celikelni.spring.boot.statemachine.constant.Events;
-import com.itu.celikelni.spring.boot.statemachine.constant.States;
+import com.itu.celikelni.spring.boot.statemachine.entity.Events;
+import com.itu.celikelni.spring.boot.statemachine.entity.States;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
@@ -13,12 +13,9 @@ import org.springframework.messaging.support.MessageBuilder;
 @SpringBootApplication
 public class Application implements CommandLineRunner {
 
-    public static void main(String[] args) {
-        SpringApplication.run(Application.class, args);
-    }
-
     @Autowired
     private StateMachine<States, Events> stateMachine;
+
 
     public void processOneCycle(int sleep){
 
@@ -72,4 +69,9 @@ public class Application implements CommandLineRunner {
 
 
     }
+
+    public static void main(String[] args) {
+        SpringApplication.run(Application.class, args);
+    }
+
 }
