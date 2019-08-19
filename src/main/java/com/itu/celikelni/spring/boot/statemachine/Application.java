@@ -9,12 +9,16 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.statemachine.StateMachine;
 import org.springframework.messaging.Message;
 import org.springframework.messaging.support.MessageBuilder;
+import org.springframework.statemachine.persist.StateMachinePersister;
 
 @SpringBootApplication
 public class Application implements CommandLineRunner {
 
     @Autowired
     private StateMachine<States, Events> stateMachine;
+
+    @Autowired
+    private StateMachinePersister<States, Events, Integer> stateMachinePersister;
 
 
     public void processOneCycle(int sleep){
@@ -54,11 +58,36 @@ public class Application implements CommandLineRunner {
 
         stateMachine.start();
 
+
+        //TODO: Persist & Restore methods should be fixed
+        /**
+        stateMachinePersister.restore(stateMachine, 1);
+        System.out.println("***********************");
+        Message<Events> messagePay = MessageBuilder
+                .withPayload(Events.PAY)
+                .setHeader("timeSleep", 1000)
+                .build();
+        stateMachine.sendEvent(messagePay);
+        stateMachinePersister.persist(stateMachine, 1);
+
+        stateMachinePersister.restore(stateMachine, 1);
+        System.out.println("***********************");
+        Message<Events> messageReceive = MessageBuilder
+                .withPayload(Events.RECEIVE)
+                .setHeader("timeSleep", 1000)
+                .build();
+        stateMachine.sendEvent(messageReceive);
+        stateMachinePersister.persist(stateMachine, 1);
+
+        stateMachinePersister.restore(stateMachine, 1);
+        System.out.println("***********************");
+         **/
+
+
         /**
          * Package 1 iteration of state machine
          * and call them in a for loop
          **/
-
         int processCounter;
         processCounter = 0;
         do{
@@ -66,6 +95,9 @@ public class Application implements CommandLineRunner {
             processCounter ++ ;
 
         } while(processCounter < 7 );
+
+
+        stateMachine.stop();
 
 
     }

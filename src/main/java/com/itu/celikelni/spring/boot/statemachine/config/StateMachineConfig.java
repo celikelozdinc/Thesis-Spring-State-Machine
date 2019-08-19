@@ -2,17 +2,21 @@ package com.itu.celikelni.spring.boot.statemachine.config;
 
 import com.itu.celikelni.spring.boot.statemachine.entity.Events;
 import com.itu.celikelni.spring.boot.statemachine.entity.States;
-
+import com.itu.celikelni.spring.boot.statemachine.persister.Persister;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.statemachine.config.EnableStateMachine;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.statemachine.config.EnumStateMachineConfigurerAdapter;
 import org.springframework.statemachine.config.builders.StateMachineStateConfigurer;
 import org.springframework.statemachine.config.builders.StateMachineTransitionConfigurer;
 import org.springframework.statemachine.action.Action;
 import org.springframework.statemachine.StateContext;
+import org.springframework.statemachine.persist.DefaultStateMachinePersister;
+import org.springframework.statemachine.persist.StateMachinePersister;
+
 
 import java.util.Map;
 import java.util.concurrent.TimeUnit;
@@ -21,6 +25,9 @@ import java.util.concurrent.TimeUnit;
 @Configuration
 @EnableStateMachine(name = "clientStateMachine")
 public class StateMachineConfig extends EnumStateMachineConfigurerAdapter<States, Events> {
+
+    @Autowired
+    private Persister fsmStateMachinePersister;
 
     private Logger logger = LoggerFactory.getLogger(getClass());
 
@@ -205,4 +212,9 @@ public class StateMachineConfig extends EnumStateMachineConfigurerAdapter<States
         };
     }
 
+
+    @Bean
+    public StateMachinePersister<States, Events, Integer> stateMachinePersist() {
+        return new DefaultStateMachinePersister<>(fsmStateMachinePersister);
+    }
 }
