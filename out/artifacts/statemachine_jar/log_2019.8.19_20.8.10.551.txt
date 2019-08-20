@@ -1,2 +1,0 @@
-2019.8.19_20.8.11.969 >>>>> UNPAID STATE...pay event...WAITING STATE
-2019.8.19_20.8.13.54 >>>>> WAITING STATE...receive event...DONE STATE

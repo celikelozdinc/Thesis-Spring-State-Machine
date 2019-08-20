@@ -1,0 +1,15 @@
+2019.8.20_22.23.5.761 >>>>> UNPAID STATE...pay event...WAITING STATE
+2019.8.20_22.23.6.810 >>>>> WAITING STATE...receive event...DONE STATE
+2019.8.20_22.23.7.851 >>>>> DONE STATE...startfromscratch event...UNPAID STATE
+2019.8.20_22.23.8.880 >>>>> UNPAID STATE...pay event...WAITING STATE
+2019.8.20_22.23.9.899 >>>>> WAITING STATE...receive event...DONE STATE
+2019.8.20_22.23.10.918 >>>>> DONE STATE...startfromscratch event...UNPAID STATE
+2019.8.20_22.23.11.932 >>>>> UNPAID STATE...pay event...WAITING STATE
+2019.8.20_22.23.12.945 >>>>> WAITING STATE...receive event...DONE STATE
+2019.8.20_22.23.13.965 >>>>> DONE STATE...startfromscratch event...UNPAID STATE
+2019.8.20_22.23.14.983 >>>>> UNPAID STATE...pay event...WAITING STATE
+2019.8.20_22.23.16.1 >>>>> WAITING STATE...receive event...DONE STATE
+2019.8.20_22.23.17.4 >>>>> DONE STATE...startfromscratch event...UNPAID STATE
+2019.8.20_22.23.18.20 >>>>> UNPAID STATE...pay event...WAITING STATE
+2019.8.20_22.23.19.42 >>>>> WAITING STATE...receive event...DONE STATE
+2019.8.20_22.23.20.49 >>>>> DONE STATE...startfromscratch event...UNPAID STATE
