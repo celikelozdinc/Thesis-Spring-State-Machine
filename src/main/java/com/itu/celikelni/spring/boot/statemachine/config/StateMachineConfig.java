@@ -217,4 +217,7 @@ public class StateMachineConfig extends EnumStateMachineConfigurerAdapter<States
     public StateMachinePersister<States, Events, Integer> stateMachinePersist() {
         return new DefaultStateMachinePersister<>(fsmStateMachinePersister);
     }
+
+
+
 }
