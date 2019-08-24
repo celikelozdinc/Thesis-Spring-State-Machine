@@ -9,6 +9,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.statemachine.StateMachine;
 import org.springframework.statemachine.persist.StateMachinePersister;
+import com.itu.celikelni.spring.boot.statemachine.data.PaymentRepository;
 
 @SpringBootApplication
 public class Application implements CommandLineRunner {
@@ -21,6 +22,10 @@ public class Application implements CommandLineRunner {
 
     @Autowired
     private PaymentService paymentService;
+
+    @Autowired
+    private  PaymentRepository paymentRepository;
+
 
     @Override
     public void run(String... args) throws Exception {
@@ -51,6 +56,14 @@ public class Application implements CommandLineRunner {
         paymentService.startfromscratch(payment.getPaymentId());
 
         paymentService.destroyEnvironment();
+
+        //PaymentDbObject dbObject = new PaymentDbObject("first",1);
+        //PaymentDbObject dbObject2 = new PaymentDbObject("second",2);
+
+
+        //paymentRepository.insert(dbObject);
+        //paymentRepository.insert(dbObject2);
+
 
         //TODO: Persist & Restore methods should be fixed
         /**

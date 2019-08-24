@@ -1,0 +1,6 @@
+spring:
+  data:
+    mongodb:
+      database: statemahine
+      host: mongocontainer
+      port: 27017
