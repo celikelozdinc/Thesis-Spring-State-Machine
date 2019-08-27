@@ -1,4 +1,5 @@
 package com.itu.celikelni.spring.boot.statemachine;
+import com.itu.celikelni.spring.boot.statemachine.data.PaymentDbObjectHandler;
 import com.itu.celikelni.spring.boot.statemachine.entity.Events;
 import com.itu.celikelni.spring.boot.statemachine.entity.States;
 import com.itu.celikelni.spring.boot.statemachine.entity.Payment;
@@ -9,7 +10,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.statemachine.StateMachine;
 import org.springframework.statemachine.persist.StateMachinePersister;
-import com.itu.celikelni.spring.boot.statemachine.data.PaymentRepository;
+import com.itu.celikelni.spring.boot.statemachine.data.PaymentDbObject;
 
 @SpringBootApplication
 public class Application implements CommandLineRunner {
@@ -24,7 +25,7 @@ public class Application implements CommandLineRunner {
     private PaymentService paymentService;
 
     @Autowired
-    private  PaymentRepository paymentRepository;
+    private PaymentDbObjectHandler dbObjectHandler;
 
 
     @Override
@@ -57,12 +58,13 @@ public class Application implements CommandLineRunner {
 
         paymentService.destroyEnvironment();
 
-        //PaymentDbObject dbObject = new PaymentDbObject("first",1);
-        //PaymentDbObject dbObject2 = new PaymentDbObject("second",2);
+        PaymentDbObject dbObject = new PaymentDbObject("first",10);
+        PaymentDbObject dbObject2 = new PaymentDbObject("second",20);
 
 
-        //paymentRepository.insert(dbObject);
-        //paymentRepository.insert(dbObject2);
+        dbObjectHandler.insertPayment(dbObject);
+        dbObjectHandler.insertPayment(dbObject2);
+
 
 
         //TODO: Persist & Restore methods should be fixed
