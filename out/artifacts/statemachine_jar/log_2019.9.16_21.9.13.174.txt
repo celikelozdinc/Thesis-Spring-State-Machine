@@ -1,0 +1,8 @@
+2019.9.16_21.9.15.54 >>>>> UNPAID STATE...pay event...WAITING STATE
+2019.9.16_21.9.16.109 >>>>> WAITING STATE...receive event...DONE STATE
+2019.9.16_21.9.17.152 >>>>> DONE STATE...startfromscratch event...UNPAID STATE
+2019.9.16_21.9.18.189 >>>>> UNPAID STATE...pay event...WAITING STATE
+2019.9.16_21.9.19.231 >>>>> WAITING STATE...receive event...DONE STATE
+2019.9.16_21.9.20.269 >>>>> DONE STATE...startfromscratch event...UNPAID STATE
+2019.9.16_21.9.21.309 >>>>> UNPAID STATE...pay event...WAITING STATE
+2019.9.16_21.9.22.346 >>>>> WAITING STATE...receive event...DONE STATE

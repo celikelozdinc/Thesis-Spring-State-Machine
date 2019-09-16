@@ -2,7 +2,7 @@ package com.itu.celikelni.spring.boot.statemachine.config;
 
 import com.itu.celikelni.spring.boot.statemachine.entity.Events;
 import com.itu.celikelni.spring.boot.statemachine.entity.States;
-import com.itu.celikelni.spring.boot.statemachine.persister.Persister;
+import com.itu.celikelni.spring.boot.statemachine.persister.___Persister;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.context.annotation.Bean;
@@ -27,7 +27,7 @@ import java.util.concurrent.TimeUnit;
 public class StateMachineConfig extends EnumStateMachineConfigurerAdapter<States, Events> {
 
     @Autowired
-    private Persister fsmStateMachinePersister;
+    private ___Persister fsmStateMachinePersister;
 
     private Logger logger = LoggerFactory.getLogger(getClass());
 
