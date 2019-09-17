@@ -22,6 +22,9 @@ public class PaymentService {
     private StateMachine<States, Events> stateMachine;
 
     @Autowired
+    private StateMachine<States,Events> backupStateMachine;
+
+    @Autowired
     private PaymentDbObjectHandler dbObjectHandler;
 
     @Autowired
@@ -31,16 +34,19 @@ public class PaymentService {
     private int timeSleep;
 
     public void prepareEnvironment(int sleep) {
-        stateMachine.start(); timeSleep = sleep;
+        stateMachine.start();
+        backupStateMachine.start();
 
+        timeSleep = sleep;
         Random rand = new Random();
         int orderId = rand.nextInt(1000);
     }
 
-    public void destroyEnvironment() { stateMachine.stop(); }
+    public void destroyEnvironment() { stateMachine.stop(); backupStateMachine.stop();}
 
     public Payment create() throws Exception{
         persistenceService.persister.persist(stateMachine,stateMachine.getUuid());
+        //persistenceService.persister.persist(backupStateMachine,backupStateMachine.getUuid());
         Random rand = new Random();
         int orderId = rand.nextInt(1000);
         Payment payment = new Payment(orderId);
@@ -55,6 +61,7 @@ public class PaymentService {
 
     public Payment pay(Payment paymentArg) throws Exception{
         persistenceService.persister.persist(stateMachine,stateMachine.getUuid());
+        //persistenceService.persister.persist(backupStateMachine,backupStateMachine.getUuid());
         Integer paymentId = paymentArg.getPaymentId();
         Payment payment = paymentCollector.pop(paymentId);
         Message<Events> messagePay = MessageBuilder
@@ -89,6 +96,14 @@ public class PaymentService {
 
     public Payment startfromscratch(Payment paymentArg) throws Exception{
         persistenceService.persister.persist(stateMachine,stateMachine.getUuid());
+
+
+        System.out.println(" ---- RESTORE BEGINS --- ");
+        persistenceService.persister.restore(backupStateMachine,stateMachine.getUuid());
+        System.out.println("State after restore --> " + backupStateMachine.getState().getId());
+        Integer commonVar = backupStateMachine.getExtendedState().get("common", Integer.class);
+        System.out.println("common var after restore --> " + commonVar);
+
         Integer paymentId = paymentArg.getPaymentId();
         Payment payment = paymentCollector.pop(paymentId);
         Message<Events> messageStartFromScratch = MessageBuilder
