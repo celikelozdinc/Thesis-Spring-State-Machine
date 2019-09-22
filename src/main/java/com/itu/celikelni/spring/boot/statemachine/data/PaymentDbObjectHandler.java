@@ -19,7 +19,7 @@ public class PaymentDbObjectHandler {
 
     // Update in database
     public PaymentDbObject updatePayment(PaymentDbObject paymentDbObject){
-        return paymentRepository.insert(paymentDbObject);
+        return paymentRepository.save(paymentDbObject);
     }
 
 }

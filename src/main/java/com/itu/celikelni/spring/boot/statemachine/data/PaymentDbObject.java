@@ -4,6 +4,8 @@ import org.springframework.data.annotation.PersistenceConstructor;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.annotation.Id;
 
+import java.util.UUID;
+
 
 /** DTO = Data Transfer Object */
 
@@ -11,16 +13,17 @@ import org.springframework.data.annotation.Id;
 public class PaymentDbObject {
 
     @Id
-    public String Id;
+    public UUID id;
 
-    private String text;
-    private Integer number;
+    private String state;
 
     @PersistenceConstructor
-    public PaymentDbObject(String st, Integer num){
+    public PaymentDbObject(UUID id, String state){
         System.out.println("****************** DB OBJECT FOR PAYMENT IS CREATED *************");
-        this.text = st;
-        this.number = num;
+        this.id = id;
+        this.state = state;
+        System.out.println("****************** UUID: " + this.id+" ******************");
+        System.out.println("****************** STATE: " + this.state+" ******************");
     }
 
 }
