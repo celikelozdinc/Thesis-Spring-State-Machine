@@ -1,5 +1,8 @@
 FROM openjdk:8-jre-alpine
-RUN apk update && apk add bash & apk add busybox-extras && apk add wget
+RUN apk update && \
+apk add bash && \ 
+apk add busybox-extras &&  \
+apk add wget
 
 # Zookeeper #
 WORKDIR /opt
