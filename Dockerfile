@@ -6,7 +6,7 @@ apk add wget
 
 # Zookeeper #
 WORKDIR /opt
-RUN wget kozyatagi.mirror.guzel.net.tr/apache/zookeeper/zookeeper-3.4.14/zookeeper-3.4.14.tar.gz && \
+RUN wget -q kozyatagi.mirror.guzel.net.tr/apache/zookeeper/zookeeper-3.4.14/zookeeper-3.4.14.tar.gz && \
 tar -xvf zookeeper-3.4.14.tar.gz && \
 mv zookeeper-3.4.14 zookeeper && \
 rm -rf zookeeper-3.4.14.tar.gz
