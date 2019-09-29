@@ -70,9 +70,11 @@ public class Application implements CommandLineRunner {
 
 
         stateMachineEnsemble1.setState(new DefaultStateMachineContext<String, String>("mockState","mockEvent", new HashMap<String, Object>(), new DefaultExtendedState()));
+        /*
         StateMachineContext<String, String> context = stateMachineEnsemble2.getState();
-        System.out.println("*************READ FROM OTHER. STATE IS " + context.getState());
+        Sytem.out.println("*************READ FROM OTHER. STATE IS " + context.getState());
         System.out.println("*************READ FROM OTHER. EVENT IS " + context.getEvent());
+         */
 
         /*
         paymentService.pay(payment.getPaymentId());
