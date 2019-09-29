@@ -234,7 +234,7 @@ public class StateMachineConfig extends EnumStateMachineConfigurerAdapter<States
 
     @Bean
     public StateMachineEnsemble<States, Events> stateMachineEnsemble() throws Exception {
-        return new ZookeeperStateMachineEnsemble<States, Events>(curatorClient(), "/foo");
+        return new ZookeeperStateMachineEnsemble<States, Events>(curatorClient(), "/zkPath");
     }
 
     @Bean

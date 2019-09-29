@@ -12,6 +12,8 @@ import org.springframework.statemachine.persist.StateMachinePersister;
 import com.itu.celikelni.spring.boot.statemachine.data.PaymentDbObject;
 import com.itu.celikelni.spring.boot.statemachine.data.PaymentRepository;
 import org.springframework.data.mongodb.repository.config.EnableMongoRepositories;
+import org.springframework.statemachine.ensemble.StateMachineEnsemble;
+
 
 //W@EnableMongoRepositories("com.itu.celikelni.spring.boot.statemachine.data")
 @EnableMongoRepositories(basePackageClasses=PaymentRepository.class)
@@ -21,15 +23,24 @@ public class Application implements CommandLineRunner {
     @Autowired
     private StateMachine<States, Events> stateMachine;
 
+    /*
     @Autowired
     private StateMachinePersister<States, Events, Integer> stateMachinePersister;
+     */
 
     @Autowired
     private PaymentService paymentService;
 
+    @Autowired
+    private StateMachineEnsemble<States, Events> stateMachineEnsemble1;
+
+    @Autowired
+    private StateMachineEnsemble<States, Events> stateMachineEnsemble2;
+
 
     @Override
     public void run(String... args) throws Exception {
+        /* Reads timesleep argument */
         String[] argument = args[0].split("=");
         int timeSleep = Integer.parseInt(argument[1]);
 
