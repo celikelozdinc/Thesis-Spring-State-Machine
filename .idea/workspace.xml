@@ -9,9 +9,9 @@
     <list default="true" id="1455a0a4-9b2f-4687-ba71-9afa24299568" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/Thesis_Spring_State_Machine_jar/Thesis-Spring-State-Machine.jar" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/Thesis_Spring_State_Machine_jar/Thesis-Spring-State-Machine.jar" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/itu/celikelni/spring/boot/statemachine/Application.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/itu/celikelni/spring/boot/statemachine/Application.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/itu/celikelni/spring/boot/statemachine/entity/Events.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/itu/celikelni/spring/boot/statemachine/entity/Events.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/itu/celikelni/spring/boot/statemachine/entity/States.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/itu/celikelni/spring/boot/statemachine/entity/States.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/itu/celikelni/spring/boot/statemachine/Application.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/itu/celikelni/spring/boot/statemachine/Application.class" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />

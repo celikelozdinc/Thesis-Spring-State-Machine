@@ -8,6 +8,7 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.statemachine.StateMachine;
+import org.springframework.statemachine.StateMachineContext;
 import org.springframework.statemachine.persist.StateMachinePersister;
 import com.itu.celikelni.spring.boot.statemachine.data.PaymentDbObject;
 import com.itu.celikelni.spring.boot.statemachine.data.PaymentRepository;
@@ -69,6 +70,9 @@ public class Application implements CommandLineRunner {
 
 
         stateMachineEnsemble1.setState(new DefaultStateMachineContext<String, String>("mockState","mockEvent", new HashMap<String, Object>(), new DefaultExtendedState()));
+        StateMachineContext<String, String> context = stateMachineEnsemble2.getState();
+        System.out.println("*************READ FROM OTHER. STATE IS " + context.getState());
+        System.out.println("*************READ FROM OTHER. EVENT IS " + context.getEvent());
 
 
         /*
