@@ -19,12 +19,13 @@ echo initLimit=10 >> conf/zoo.cfg && \
 echo syncLimit=5 >> conf/zoo.cfg && \
 echo clientPort=2181 >> conf/zoo.cfg 
 EXPOSE 2181
-#WORKDIR /opt/zookeeper/bin
-#CMD["./zkServer.sh","start"]
 
 # Spring Boot # 
 ENV PROJECT_HOME /opt/statemachineapp
 COPY out/artifacts/statemachine_jar/statemachine.jar $PROJECT_HOME/statemachine.jar
-COPY out/artifacts/Thesis_Spring_State_Machine_jar/Thesis-Spring-State-Machine.jar $PROJECT_HOME/Thesis-Spring-State-Machine.jar
+COPY out/artifacts/Thesis_Spring_State_Machine_jar/ $PROJECT_HOME/Thesis_Spring_State_Machine_jar/
 WORKDIR $PROJECT_HOME
 
+# Start zookeper in foreground #
+# You should start container with detached mode #  
+ENTRYPOINT ["/bin/bash","/opt/zookeeper/bin/zkServer.sh","start-foreground"]
