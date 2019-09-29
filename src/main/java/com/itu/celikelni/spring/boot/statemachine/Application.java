@@ -13,6 +13,10 @@ import com.itu.celikelni.spring.boot.statemachine.data.PaymentDbObject;
 import com.itu.celikelni.spring.boot.statemachine.data.PaymentRepository;
 import org.springframework.data.mongodb.repository.config.EnableMongoRepositories;
 import org.springframework.statemachine.ensemble.StateMachineEnsemble;
+import org.springframework.statemachine.support.DefaultExtendedState;
+import org.springframework.statemachine.support.DefaultStateMachineContext;
+
+import java.util.HashMap;
 
 
 //W@EnableMongoRepositories("com.itu.celikelni.spring.boot.statemachine.data")
@@ -32,10 +36,10 @@ public class Application implements CommandLineRunner {
     private PaymentService paymentService;
 
     @Autowired
-    private StateMachineEnsemble<States, Events> stateMachineEnsemble1;
+    private StateMachineEnsemble<String, String> stateMachineEnsemble1;
 
     @Autowired
-    private StateMachineEnsemble<States, Events> stateMachineEnsemble2;
+    private StateMachineEnsemble<String, String> stateMachineEnsemble2;
 
 
     @Override
@@ -62,6 +66,9 @@ public class Application implements CommandLineRunner {
         Payment paid_4 =  paymentService.pay(created_4);
         Payment received_4 = paymentService.receive(paid_4);
         paymentService.startfromscratch(received_4);
+
+
+        stateMachineEnsemble1.setState(new DefaultStateMachineContext<String, String>("mockState","mockEvent", new HashMap<String, Object>(), new DefaultExtendedState()));
 
 
         /*

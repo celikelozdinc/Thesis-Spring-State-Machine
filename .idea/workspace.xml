@@ -7,55 +7,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1455a0a4-9b2f-4687-ba71-9afa24299568" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/Thesis_Spring_State_Machine_jar/Thesis-Spring-State-Machine.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/Thesis_Spring_State_Machine_jar/annotations-17.0.0.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/Thesis_Spring_State_Machine_jar/bson-3.8.2.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/Thesis_Spring_State_Machine_jar/curator-client-2.11.1.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/Thesis_Spring_State_Machine_jar/curator-framework-2.11.1.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/Thesis_Spring_State_Machine_jar/curator-recipes-2.11.1.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/Thesis_Spring_State_Machine_jar/guava-16.0.1.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/Thesis_Spring_State_Machine_jar/jackson-annotations-2.9.0.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/Thesis_Spring_State_Machine_jar/jackson-core-2.9.9.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/Thesis_Spring_State_Machine_jar/jackson-databind-2.9.9.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/Thesis_Spring_State_Machine_jar/javax.annotation-api-1.3.2.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/Thesis_Spring_State_Machine_jar/jline-0.9.94.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/Thesis_Spring_State_Machine_jar/jul-to-slf4j-1.7.26.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/Thesis_Spring_State_Machine_jar/kryo-shaded-4.0.2.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/Thesis_Spring_State_Machine_jar/log4j-1.2.17.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/Thesis_Spring_State_Machine_jar/log4j-api-2.11.2.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/Thesis_Spring_State_Machine_jar/log4j-to-slf4j-2.11.2.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/Thesis_Spring_State_Machine_jar/logback-classic-1.2.3.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/Thesis_Spring_State_Machine_jar/logback-core-1.2.3.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/Thesis_Spring_State_Machine_jar/minlog-1.3.0.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/Thesis_Spring_State_Machine_jar/mongodb-driver-3.8.2.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/Thesis_Spring_State_Machine_jar/mongodb-driver-core-3.8.2.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/Thesis_Spring_State_Machine_jar/netty-3.7.0.Final.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/Thesis_Spring_State_Machine_jar/objenesis-2.5.1.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/Thesis_Spring_State_Machine_jar/slf4j-api-1.7.26.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/Thesis_Spring_State_Machine_jar/snakeyaml-1.23.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/Thesis_Spring_State_Machine_jar/spring-aop-5.1.9.RELEASE.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/Thesis_Spring_State_Machine_jar/spring-beans-5.1.9.RELEASE.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/Thesis_Spring_State_Machine_jar/spring-boot-2.1.7.RELEASE.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/Thesis_Spring_State_Machine_jar/spring-boot-autoconfigure-2.1.7.RELEASE.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/Thesis_Spring_State_Machine_jar/spring-boot-starter-2.1.7.RELEASE.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/Thesis_Spring_State_Machine_jar/spring-boot-starter-data-mongodb-2.1.7.RELEASE.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/Thesis_Spring_State_Machine_jar/spring-boot-starter-logging-2.1.7.RELEASE.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/Thesis_Spring_State_Machine_jar/spring-context-5.1.9.RELEASE.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/Thesis_Spring_State_Machine_jar/spring-core-5.1.9.RELEASE.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/Thesis_Spring_State_Machine_jar/spring-data-commons-2.1.10.RELEASE.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/Thesis_Spring_State_Machine_jar/spring-data-mongodb-2.1.10.RELEASE.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/Thesis_Spring_State_Machine_jar/spring-expression-5.1.9.RELEASE.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/Thesis_Spring_State_Machine_jar/spring-jcl-5.1.9.RELEASE.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/Thesis_Spring_State_Machine_jar/spring-messaging-5.1.9.RELEASE.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/Thesis_Spring_State_Machine_jar/spring-statemachine-core-2.1.3.RELEASE.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/Thesis_Spring_State_Machine_jar/spring-statemachine-data-common-2.1.3.RELEASE.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/Thesis_Spring_State_Machine_jar/spring-statemachine-data-mongodb-2.1.3.RELEASE.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/Thesis_Spring_State_Machine_jar/spring-statemachine-kryo-2.1.3.RELEASE.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/Thesis_Spring_State_Machine_jar/spring-statemachine-zookeeper-2.1.3.RELEASE.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/Thesis_Spring_State_Machine_jar/spring-tx-5.1.9.RELEASE.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/Thesis_Spring_State_Machine_jar/zookeeper-3.4.8.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/itu/celikelni/spring/boot/statemachine/Application.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/itu/celikelni/spring/boot/statemachine/Application.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/itu/celikelni/spring/boot/statemachine/entity/Events.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/itu/celikelni/spring/boot/statemachine/entity/Events.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/itu/celikelni/spring/boot/statemachine/entity/States.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/itu/celikelni/spring/boot/statemachine/entity/States.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
