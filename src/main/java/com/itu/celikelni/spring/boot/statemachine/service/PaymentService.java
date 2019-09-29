@@ -45,8 +45,8 @@ public class PaymentService {
     public void destroyEnvironment() { stateMachine.stop(); backupStateMachine.stop();}
 
     public Payment create() throws Exception{
-        persistenceService.persister.persist(stateMachine,stateMachine.getUuid());
-        //persistenceService.persister.persist(backupStateMachine,backupStateMachine.getUuid());
+        //persistenceService.persister.persist(stateMachine,stateMachine.getUuid());
+
         Random rand = new Random();
         int orderId = rand.nextInt(1000);
         Payment payment = new Payment(orderId);
@@ -54,14 +54,13 @@ public class PaymentService {
         /** Payment is created as UNPAID state**/
 
         PaymentDbObject dbObject = new PaymentDbObject(stateMachine.getUuid(),payment.getPaymentStatus().toString());
-        dbObjectHandler.insertPayment(dbObject);
+        //dbObjectHandler.insertPayment(dbObject);
 
         return payment;
     }
 
     public Payment pay(Payment paymentArg) throws Exception{
-        persistenceService.persister.persist(stateMachine,stateMachine.getUuid());
-        //persistenceService.persister.persist(backupStateMachine,backupStateMachine.getUuid());
+        //persistenceService.persister.persist(stateMachine,stateMachine.getUuid());
         Integer paymentId = paymentArg.getPaymentId();
         Payment payment = paymentCollector.pop(paymentId);
         Message<Events> messagePay = MessageBuilder
@@ -72,13 +71,13 @@ public class PaymentService {
         payment.setPaymentStatus(States.WAITING_FOR_RECEIVE);
 
         PaymentDbObject dbObject = new PaymentDbObject(stateMachine.getUuid(),payment.getPaymentStatus().toString());
-        dbObjectHandler.updatePayment(dbObject);
+        //dbObjectHandler.updatePayment(dbObject);
 
         return payment;
     }
 
     public Payment receive(Payment paymentArg) throws Exception{
-        persistenceService.persister.persist(stateMachine,stateMachine.getUuid());
+        //persistenceService.persister.persist(stateMachine,stateMachine.getUuid());
         Integer paymentId = paymentArg.getPaymentId();
         Payment payment = paymentCollector.pop(paymentId);
         Message<Events> messageReceive = MessageBuilder
@@ -89,20 +88,21 @@ public class PaymentService {
         payment.setPaymentStatus(States.DONE);
 
         PaymentDbObject dbObject = new PaymentDbObject(stateMachine.getUuid(),payment.getPaymentStatus().toString());
-        dbObjectHandler.updatePayment(dbObject);
+        //dbObjectHandler.updatePayment(dbObject);
 
         return payment;
     }
 
     public Payment startfromscratch(Payment paymentArg) throws Exception{
+
+        /*
         persistenceService.persister.persist(stateMachine,stateMachine.getUuid());
-
-
         System.out.println(" ---- RESTORE BEGINS --- ");
         persistenceService.persister.restore(backupStateMachine,stateMachine.getUuid());
         System.out.println("State after restore --> " + backupStateMachine.getState().getId());
         Integer commonVar = backupStateMachine.getExtendedState().get("common", Integer.class);
         System.out.println("common var after restore --> " + commonVar);
+        */
 
         Integer paymentId = paymentArg.getPaymentId();
         Payment payment = paymentCollector.pop(paymentId);
@@ -114,7 +114,7 @@ public class PaymentService {
         payment.setPaymentStatus(States.UNPAID);
 
         PaymentDbObject dbObject = new PaymentDbObject(stateMachine.getUuid(),payment.getPaymentStatus().toString());
-        dbObjectHandler.updatePayment(dbObject);
+        //dbObjectHandler.updatePayment(dbObject);
 
         return payment;
     }

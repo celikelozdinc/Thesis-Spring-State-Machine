@@ -12,11 +12,16 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.statemachine.config.EnumStateMachineConfigurerAdapter;
 import org.springframework.statemachine.config.builders.StateMachineStateConfigurer;
 import org.springframework.statemachine.config.builders.StateMachineTransitionConfigurer;
+import org.springframework.statemachine.config.builders.StateMachineConfigurationConfigurer;
 import org.springframework.statemachine.action.Action;
 import org.springframework.statemachine.StateContext;
 import org.springframework.statemachine.persist.DefaultStateMachinePersister;
 import org.springframework.statemachine.persist.StateMachinePersister;
-
+import org.springframework.statemachine.ensemble.StateMachineEnsemble;
+import org.springframework.statemachine.zookeeper.ZookeeperStateMachineEnsemble;
+import org.apache.curator.framework.CuratorFramework;
+import org.apache.curator.framework.CuratorFrameworkFactory;
+import org.apache.curator.retry.ExponentialBackoffRetry;
 
 import java.util.Map;
 import java.util.concurrent.TimeUnit;
@@ -33,6 +38,15 @@ public class StateMachineConfig extends EnumStateMachineConfigurerAdapter<States
 
     /** Default Constructor **/
     public StateMachineConfig(){ }
+
+
+
+    @Override
+    public void configure(StateMachineConfigurationConfigurer<States, Events> config) throws Exception {
+        config
+                .withDistributed()
+                .ensemble(stateMachineEnsemble());
+    }
 
 
     /**
@@ -218,6 +232,18 @@ public class StateMachineConfig extends EnumStateMachineConfigurerAdapter<States
         return new DefaultStateMachinePersister<>(fsmStateMachinePersister);
     }
 
+    @Bean
+    public StateMachineEnsemble<States, Events> stateMachineEnsemble() throws Exception {
+        return new ZookeeperStateMachineEnsemble<States, Events>(curatorClient(), "/foo");
+    }
 
+    @Bean
+    public CuratorFramework curatorClient() throws Exception {
+        CuratorFramework client = CuratorFrameworkFactory.builder().defaultData(new byte[0])
+                .retryPolicy(new ExponentialBackoffRetry(1000, 3))
+                .connectString("localhost:2181").build();
+        client.start();
+        return client;
+    }
 
 }

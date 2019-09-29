@@ -25,5 +25,6 @@ EXPOSE 2181
 # Spring Boot # 
 ENV PROJECT_HOME /opt/statemachineapp
 COPY out/artifacts/statemachine_jar/statemachine.jar $PROJECT_HOME/statemachine.jar
+COPY out/artifacts/Thesis_Spring_State_Machine_jar/Thesis-Spring-State-Machine.jar $PROJECT_HOME/Thesis-Spring-State-Machine.jar
 WORKDIR $PROJECT_HOME
 
