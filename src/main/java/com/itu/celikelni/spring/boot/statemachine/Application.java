@@ -36,10 +36,10 @@ public class Application implements CommandLineRunner {
     private PaymentService paymentService;
 
     @Autowired
-    private StateMachineEnsemble<String, String> stateMachineEnsemble1;
+    private StateMachineEnsemble<States, Events> stateMachineEnsemble1;
 
     @Autowired
-    private StateMachineEnsemble<String, String> stateMachineEnsemble2;
+    private StateMachineEnsemble<States, Events> stateMachineEnsemble2;
 
 
     @Override
@@ -68,7 +68,7 @@ public class Application implements CommandLineRunner {
         paymentService.startfromscratch(received_4);
 
 
-        stateMachineEnsemble1.setState(new DefaultStateMachineContext<String, String>("mockState","mockEvent", new HashMap<String, Object>(), new DefaultExtendedState()));
+        //stateMachineEnsemble1.setState(new DefaultStateMachineContext<String, String>("mockState","mockEvent", new HashMap<String, Object>(), new DefaultExtendedState()));
 
 
         /*
