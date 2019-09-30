@@ -13,9 +13,6 @@ import org.springframework.statemachine.persist.StateMachinePersister;
 import com.itu.celikelni.spring.boot.statemachine.data.PaymentDbObject;
 import com.itu.celikelni.spring.boot.statemachine.data.PaymentRepository;
 import org.springframework.data.mongodb.repository.config.EnableMongoRepositories;
-import org.springframework.statemachine.ensemble.StateMachineEnsemble;
-import org.springframework.statemachine.support.DefaultExtendedState;
-import org.springframework.statemachine.support.DefaultStateMachineContext;
 
 import java.util.HashMap;
 
@@ -35,12 +32,6 @@ public class Application implements CommandLineRunner {
 
     @Autowired
     private PaymentService paymentService;
-
-    @Autowired
-    private StateMachineEnsemble<States, Events> stateMachineEnsemble1;
-
-    @Autowired
-    private StateMachineEnsemble<States, Events> stateMachineEnsemble2;
 
 
     @Override
@@ -67,12 +58,6 @@ public class Application implements CommandLineRunner {
         Payment paid_4 =  paymentService.pay(created_4);
         Payment received_4 = paymentService.receive(paid_4);
         paymentService.startfromscratch(received_4);
-
-
-        stateMachineEnsemble1.setState(new DefaultStateMachineContext<States, Events>(States.UNPAID,Events.PAY, new HashMap<String, Object>(), new DefaultExtendedState()));
-        StateMachineContext<States, Events> context = stateMachineEnsemble2.getState();
-        System.out.println("*************READ FROM OTHER. STATE IS " + context.getState());
-        System.out.println("*************READ FROM OTHER. EVENT IS " + context.getEvent());
 
 
 

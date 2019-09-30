@@ -10,7 +10,10 @@ import org.springframework.statemachine.StateMachine;
 import org.springframework.stereotype.Service;
 import com.itu.celikelni.spring.boot.statemachine.entity.Payment;
 import org.springframework.beans.factory.annotation.Autowired;
+
+
 import java.util.Random;
+
 
 @Service
 public class PaymentService {
@@ -29,6 +32,7 @@ public class PaymentService {
 
     @Autowired
     private PaymentPersistenceService persistenceService;
+
 
 
     private int timeSleep;
@@ -51,6 +55,7 @@ public class PaymentService {
         int orderId = rand.nextInt(1000);
         Payment payment = new Payment(orderId);
         paymentCollector.push(payment);
+
         /** Payment is created as UNPAID state**/
 
         PaymentDbObject dbObject = new PaymentDbObject(stateMachine.getUuid(),payment.getPaymentStatus().toString());
