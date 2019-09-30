@@ -68,7 +68,7 @@ public class Application implements CommandLineRunner {
         paymentService.startfromscratch(received_4);
 
 
-        //stateMachineEnsemble1.setState(new DefaultStateMachineContext<String, String>("mockState","mockEvent", new HashMap<String, Object>(), new DefaultExtendedState()));
+        stateMachineEnsemble1.setState(new DefaultStateMachineContext<States, Events>(States.UNPAID,Events.PAY, new HashMap<String, Object>(), new DefaultExtendedState()));
 
 
         /*
