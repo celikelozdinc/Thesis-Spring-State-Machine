@@ -46,7 +46,6 @@ public class Application implements CommandLineRunner {
         Payment paid = paymentService.pay(created);
         Payment received = paymentService.receive(paid);
 
-        /*
         Payment created_2 = paymentService.startfromscratch(received);
         Payment paid_2 =  paymentService.pay(created_2);
         Payment received_2 = paymentService.receive(paid_2);
@@ -56,6 +55,7 @@ public class Application implements CommandLineRunner {
         Payment received_3 = paymentService.receive(paid_3);
 
         Payment created_4 = paymentService.startfromscratch(received_3);
+        /*
         Payment paid_4 =  paymentService.pay(created_4);
         Payment received_4 = paymentService.receive(paid_4);
         paymentService.startfromscratch(received_4);
