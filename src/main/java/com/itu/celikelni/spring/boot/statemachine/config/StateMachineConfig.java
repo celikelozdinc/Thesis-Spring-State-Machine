@@ -7,6 +7,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.statemachine.StateMachineContext;
 import org.springframework.statemachine.config.EnableStateMachine;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.statemachine.config.EnumStateMachineConfigurerAdapter;
@@ -119,7 +120,11 @@ public class StateMachineConfig extends EnumStateMachineConfigurerAdapter<States
 
             @Override
             public void execute(StateContext<States, Events> context) {
-                System.out.println("Setting state machine ensemble inside entryActionForWaiting");
+                System.out.println("Getting stateMachineEnsemble2 inside entryActionForWaiting...");
+                StateMachineContext<States, Events> smContext = stateMachineEnsemble2.getState();
+                System.out.println("EXTENDED STATE IS " + context.getExtendedState());
+                System.out.println("EVENT IS " + context.getEvent());
+                System.out.println("Setting stateMachineEnsemble1 inside entryActionForWaiting");
                 stateMachineEnsemble1.setState(new DefaultStateMachineContext<States, Events>(States.WAITING_FOR_RECEIVE,Events.PAY, new HashMap<String, Object>(), new DefaultExtendedState()));
 
                 System.out.println("-----------ENTERING WAITING STATE ACTION------------");
@@ -180,6 +185,7 @@ public class StateMachineConfig extends EnumStateMachineConfigurerAdapter<States
         return new Action<States, Events>() {
             @Override
             public void execute(StateContext<States, Events> context) {
+
 
                 System.out.println("Setting state machine ensemble inside initializationAction");
                 stateMachineEnsemble1.setState(new DefaultStateMachineContext<States, Events>(States.UNPAID,null, new HashMap<String, Object>(), new DefaultExtendedState()));
