@@ -114,6 +114,7 @@ public class StateMachineConfig extends EnumStateMachineConfigurerAdapter<States
                 Integer localVar = context.getExtendedState().get("localVarForWaiting", Integer.class);
                 localVar = localVar + 2;
                 context.getExtendedState().getVariables().put("localVarForWaiting", localVar);
+                System.out.println("****** entry action for waiting****** STATE: " + context.getExtendedState()+ " EVENT: " + context.getEvent() );
                 /** Must be catched by regarding State Action Error Handling Function **/
                 throw new RuntimeException("RUNTIME ERROR DURING WAITING STATE EXECUTION!!!");
             }
@@ -171,6 +172,9 @@ public class StateMachineConfig extends EnumStateMachineConfigurerAdapter<States
                 /** Define extended state variable as private/local variable used inside state actions **/
                 context.getExtendedState().getVariables().put("localVarForWaiting",10);
                 context.getExtendedState().getVariables().put("localVarForDone",50);
+
+                System.out.println("****** initialization action****** STATE: " + context.getExtendedState()+ " EVENT: " + context.getEvent() );
+
             }
         };
     }
