@@ -18,11 +18,14 @@ import org.springframework.statemachine.StateContext;
 import org.springframework.statemachine.persist.DefaultStateMachinePersister;
 import org.springframework.statemachine.persist.StateMachinePersister;
 import org.springframework.statemachine.ensemble.StateMachineEnsemble;
+import org.springframework.statemachine.support.DefaultExtendedState;
+import org.springframework.statemachine.support.DefaultStateMachineContext;
 import org.springframework.statemachine.zookeeper.ZookeeperStateMachineEnsemble;
 import org.apache.curator.framework.CuratorFramework;
 import org.apache.curator.framework.CuratorFrameworkFactory;
 import org.apache.curator.retry.ExponentialBackoffRetry;
 
+import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.TimeUnit;
 
@@ -35,6 +38,12 @@ public class StateMachineConfig extends EnumStateMachineConfigurerAdapter<States
     private ___Persister fsmStateMachinePersister;
 
     private Logger logger = LoggerFactory.getLogger(getClass());
+
+    @Autowired
+    private StateMachineEnsemble<States, Events> stateMachineEnsemble1;
+
+    @Autowired
+    private StateMachineEnsemble<States, Events> stateMachineEnsemble2;
 
 
     /** Default Constructor **/
@@ -110,11 +119,13 @@ public class StateMachineConfig extends EnumStateMachineConfigurerAdapter<States
 
             @Override
             public void execute(StateContext<States, Events> context) {
+                System.out.println("Setting state machine ensemble inside entryActionForWaiting");
+                stateMachineEnsemble1.setState(new DefaultStateMachineContext<States, Events>(States.WAITING_FOR_RECEIVE,Events.PAY, new HashMap<String, Object>(), new DefaultExtendedState()));
+
                 System.out.println("-----------ENTERING WAITING STATE ACTION------------");
                 Integer localVar = context.getExtendedState().get("localVarForWaiting", Integer.class);
                 localVar = localVar + 2;
                 context.getExtendedState().getVariables().put("localVarForWaiting", localVar);
-                System.out.println("****** entry action for waiting****** STATE: " + context.getExtendedState()+ " EVENT: " + context.getEvent() );
                 /** Must be catched by regarding State Action Error Handling Function **/
                 throw new RuntimeException("RUNTIME ERROR DURING WAITING STATE EXECUTION!!!");
             }
@@ -140,6 +151,9 @@ public class StateMachineConfig extends EnumStateMachineConfigurerAdapter<States
 
             @Override
             public void execute(StateContext<States, Events> context) {
+                System.out.println("Setting state machine ensemble inside entryActionForDone");
+                stateMachineEnsemble1.setState(new DefaultStateMachineContext<States, Events>(States.DONE,Events.RECEIVE, new HashMap<String, Object>(), new DefaultExtendedState()));
+
                 System.out.println("-----------ENTERING DONE STATE ACTION------------");
                 Integer localVar = context.getExtendedState().get("localVarForDone", Integer.class);
                 localVar = localVar + 5;
@@ -166,14 +180,16 @@ public class StateMachineConfig extends EnumStateMachineConfigurerAdapter<States
         return new Action<States, Events>() {
             @Override
             public void execute(StateContext<States, Events> context) {
+
+                System.out.println("Setting state machine ensemble inside initializationAction");
+                stateMachineEnsemble1.setState(new DefaultStateMachineContext<States, Events>(States.UNPAID,null, new HashMap<String, Object>(), new DefaultExtendedState()));
+
                 System.out.println("----------- TRANSITION ACTION FOR INITIALIZATION------------");
                 /** Define extended state variable as common variable used inside transition actions **/
                 context.getExtendedState().getVariables().put("common", 0);
                 /** Define extended state variable as private/local variable used inside state actions **/
                 context.getExtendedState().getVariables().put("localVarForWaiting",10);
                 context.getExtendedState().getVariables().put("localVarForDone",50);
-
-                System.out.println("****** initialization action****** STATE: " + context.getExtendedState()+ " EVENT: " + context.getEvent() );
 
             }
         };

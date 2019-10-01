@@ -38,12 +38,6 @@ public class PaymentService {
     @Autowired
     private PaymentPersistenceService persistenceService;
 
-    @Autowired
-    private StateMachineEnsemble<States, Events> stateMachineEnsemble1;
-
-    @Autowired
-    private StateMachineEnsemble<States, Events> stateMachineEnsemble2;
-
 
     private int timeSleep;
 
