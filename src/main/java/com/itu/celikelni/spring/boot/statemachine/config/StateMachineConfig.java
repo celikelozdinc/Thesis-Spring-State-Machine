@@ -156,7 +156,11 @@ public class StateMachineConfig extends EnumStateMachineConfigurerAdapter<States
 
             @Override
             public void execute(StateContext<States, Events> context) {
-                System.out.println("Setting state machine ensemble inside entryActionForDone");
+                System.out.println("Getting stateMachineEnsemble2 inside entryActionForDone...");
+                StateMachineContext<States, Events> smContext = stateMachineEnsemble2.getState();
+                System.out.println("EXTENDED STATE IS " + context.getExtendedState());
+                System.out.println("EVENT IS " + context.getEvent());
+                System.out.println("Setting state machine ensemble inside1 entryActionForDone");
                 stateMachineEnsemble1.setState(new DefaultStateMachineContext<States, Events>(States.DONE,Events.RECEIVE, new HashMap<String, Object>(), new DefaultExtendedState()));
 
                 System.out.println("-----------ENTERING DONE STATE ACTION------------");
