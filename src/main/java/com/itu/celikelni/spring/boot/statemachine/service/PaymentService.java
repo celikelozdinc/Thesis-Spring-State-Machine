@@ -10,6 +10,11 @@ import org.springframework.statemachine.StateMachine;
 import org.springframework.stereotype.Service;
 import com.itu.celikelni.spring.boot.statemachine.entity.Payment;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.statemachine.ensemble.StateMachineEnsemble;
+import org.springframework.statemachine.zookeeper.ZookeeperStateMachineEnsemble;
+import org.apache.curator.framework.CuratorFramework;
+import org.apache.curator.framework.CuratorFrameworkFactory;
+import org.apache.curator.retry.ExponentialBackoffRetry;
 
 
 import java.util.Random;
@@ -33,6 +38,11 @@ public class PaymentService {
     @Autowired
     private PaymentPersistenceService persistenceService;
 
+    @Autowired
+    private StateMachineEnsemble<States, Events> stateMachineEnsemble1;
+
+    @Autowired
+    private StateMachineEnsemble<States, Events> stateMachineEnsemble2;
 
 
     private int timeSleep;
